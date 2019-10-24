@@ -1,0 +1,11 @@
+# Ignore temporary files
+*~
+
+# Ignore matlab data and figure files
+*.mat
+*.fig
+
+# Ignore latex compilation files
+*.pdf
+*.aux
+*.log

@@ -24,21 +24,28 @@ function [wS,objs] = gen_screen(objs,wS,varargin)
 %   - objs = same as the input structure, with position and boundary
 %   variables included
 % Nate Zuk (2016)
+% * Updated 2018 to include crosshair for EEG experiments
 
+% general specs
 bckColor = [0 0 0]; % background color
 txtColor = [255 255 255 255]; % color of text
 txtFont = 'Arial';
+txtSize = 30; % size of text
+% color of on-screen button
 btnColor = [0 0 255 255]; % color of button
 btnPd = 10; % number of pixels to pad button rectangle around text
-txtSize = 30; % size of text
+% visual circular indicator
 indSize = 50; % diameter of circular indicator
 indColor = [100 255 100 255; 255 100 100 255]; % colors for the indicator, row 1 is OFF, row 2 is ON
+% crosshair
 crsSize = 50; % width of crosshair
 crsWidth = 2; % width of the lines in the crosshair, in pixels
 crsColor = [255 255 255 255]; % color for the crosshair
+% screen attributes
 dsp = 1; % number of the screen
 offscreen = 0; % window is offscreen
 maxrel = [3 3]; % number of equal sections (width and height) by which to split the screen
+
 if nargin<2, % if wS is not provided
 	wS = [];
 end
