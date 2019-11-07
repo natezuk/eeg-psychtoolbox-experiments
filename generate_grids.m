@@ -6,7 +6,7 @@ function [grids,targets] = generate_grids(trial_dur,ioi)
 % - trial_dur = trial duration (in s)
 % - ioi = inter-onset interval between grids (in ms)
 % Outputs:
-% - grids = set of 3x3 grids (3x3x#grids), where each grid contains 1 if
+% - grids = set of grids (nrows x ncols x #grids), where each grid contains 1 if
 %     it's filled and 0 otherwise
 % - targets = specifies which grids are targets, based on a two-back task
 % - params = other parameters relating to the grid display
@@ -17,9 +17,15 @@ function [grids,targets] = generate_grids(trial_dur,ioi)
 ncols = 3; % # columns in the grid
 nrows = 2; % # rows in the grid
 nsqon = 3; % # of squares on at a time
-nsquares = ncols*nrows;
+
+if ~isempty(varargin)
+    for n = 2:2:length(varargin)
+        eval([varargin{n-1} '=varargin{n};']);
+    end
+end
 
 %% Determine the number of grids
+nsquares = ncols*nrows;
 ngrids = ceil(trial_dur/(ioi/1000))+1; % the number of grids to present
 
 %% Randomly generate grid patterns
