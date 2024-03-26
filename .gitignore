@@ -9,3 +9,6 @@
 *.pdf
 *.aux
 *.log
+
+# Ignore any stimuli
+example_stimuli/*/
