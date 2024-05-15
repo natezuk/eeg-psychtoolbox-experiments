@@ -1,7 +1,7 @@
 % Create a click train with Poisson distribution timing
 % (based on Maddox & Lee, 2018)
 
-click_rate = 44.1; % average click rate in s
+click_rate = 2; % average click rate in s
 stim_dur = 30; % duration of the click train
 ntr = 20; % number of trials
 Fs = 48000;
